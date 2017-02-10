@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Test : MonoBehaviour 
 {
+    public GameObject cube;
+
 	// Update is called once per frame
 	void Update () 
 	{
@@ -11,9 +13,7 @@ public class Test : MonoBehaviour
 		Quaternion rot = Quaternion.AngleAxis(90f*Time.deltaTime, Vector3.up);
 		rot = rot*now;
 		transform.rotation = rot;
-
-		Vector3 next = transform.position;
-		next.x += 1f * Time.deltaTime;
-		transform.position = next;
+        Instantiate(cube);
+        Instantiate(cube, new Vector3(Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f), Random.Range(-10.0f, 10.0f)), Quaternion.identity);
 	}
 }
